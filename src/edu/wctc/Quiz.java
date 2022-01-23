@@ -9,6 +9,15 @@ public class Quiz {
     private Scanner keyboard;
     private  int points;
     private  String again;
+    private boolean condition;
+
+    public boolean isCondition() {
+        return condition;
+    }
+
+    public void setCondition(boolean condition) {
+        this.condition = condition;
+    }
 
     public String getAgain() {
         return again;
@@ -68,15 +77,24 @@ public void play(){
 
         if (again.equals("1"))
         {
-            points = 0;
-            again = "";
-            play();
+            condition = true;
 
 
         }
         else
         {
+            condition = false;
+        }
 
+        if (condition)
+        {
+            points = 0;
+            again = "";
+            play();
+        }
+        else
+        {
+            System.out.println("See ya later");
         }
 
 }
